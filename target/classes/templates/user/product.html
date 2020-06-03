@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Industery HTML-5 Template </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/owl.carousel.min.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/gijgo.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/slicknav.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/animate.min.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/magnific-popup.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/fontawesome-all.min.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/slick.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/nice-select.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+            <link rel="stylesheet" th:href="@{/assets/css/responsive.css}">
+
+   </head>
+
+   <body>
+
+   <!-- Preloader Start -->
+   <div id="preloader-active" th:replace="user/userLayout::preloader">
+   </div>
+   <!-- Preloader Start -->
+
+   <header>
+       <!-- Header Start -->
+       <div class="header-area">
+           <div class="main-header ">
+               <div class="header-top top-bg d-none d-lg-block">
+                   <div class="container">
+                       <div class="col-xl-12">
+                           <div class="row d-flex justify-content-between align-items-center">
+                               <div class="header-info-right">
+                                   <ul>
+                                       <li>CÔNG TY CỔ PHẦN FRIT HƯƠNG GIANG
+                                       </li>
+                                   </ul>
+                               </div>
+                               <div class="header-info-left">
+                                   <ul>
+                                       <li>
+                                           <a href="https://www.huonggiangfrit.com.vn/change-language/en"><img src="/assets/img/huonggiang/icon-en.png"></a>
+                                           <a href="https://www.huonggiangfrit.com.vn/change-language/vi"><img src="/assets/img/huonggiang/icon-vn.png"></a>
+                                       </li>
+                                       <li>+84.2343.595.695</li>
+                                       <li style="margin:5px">huonggiangfrit@gmail.com</li>
+
+
+                                   </ul>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="header-bottom  header-sticky">
+                   <div class="container">
+                       <div class="row align-items-center">
+                           <!-- Logo -->
+                           <div class="col-xl-2 col-lg-1 col-md-1">
+                               <div class="logo" style="">
+                                   <a href="/user/index"><img width="100px" src="https://www.huonggiangfrit.com.vn/assets/img/logo/logo_2.png" alt=""></a>
+                                   <!-- <img src="https://www.huonggiangfrit.com.vn/assets/img/logo/huongiangicon.png" alt="..."> -->
+                               </div>
+                           </div>
+                           <div class="col-xl-8 col-lg-8 col-md-8">
+                               <!-- Main-menu -->
+                               <div class="main-menu d-none d-lg-block">
+                                   <nav>
+                                       <ul id="navigation">
+                                           <li><a href="/user/index">TRANG CHỦ</a></li>
+                                           <li><a href="/user/aboutUs">GIỚI THIỆU</a>
+                                           </li>
+                                           <li><a href="">SẢN PHẨM</a>
+                                               <ul class="submenu">
+                                                    <th:block th:each="category : ${categories}">
+                                                   <li><a th:href="@{'/user/product/'+${category.id}}" th:text="${category.name}"></a></li>
+                                                    </th:block>
+                                               </ul>
+                                           </li>
+                                           <li><a href="/user/news">TIN TỨC</a></li>
+                                           <li><a href="/user/career">TUYỂN DỤNG</a></li>
+                                           <li><a href="/user/contact">LIÊN HỆ</a></li>
+                                       </ul>
+                                   </nav>
+
+                               </div>
+                           </div>
+                           <!-- Mobile Menu -->
+                           <div class="col-12">
+                               <div class="mobile_menu d-block d-lg-none"></div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <!-- Header End -->
+   </header>
+
+   <main>
+
+       <section class="blog_area single-post-area section-padding">
+           <div class="container-fluid">
+               <div class="row">
+                   <div class="col-3">
+                       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                           <a class="nav-link bg-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" th:text="${category.name + ' GỒM CÓ :'}"></a>
+                           <th:block th:each="product : ${products}">
+                           <a class="nav-link bg-light" id="v-pills-{{$value->name}}-tab" data-toggle="pill" th:href="@{'#' + ${product.id}}" role="tab" aria-controls="v-pills-profile" aria-selected="{{$value->id ==''}}"><p th:text="${'FRIT TRONG' + product.name}"></p></a>
+                           </th:block>
+                       </div>
+                   </div>
+                   <div class="col-9">
+                       <div class="tab-content" id="v-pills-tabContent">
+                           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                               <div class="col-lg-9 posts-list">
+                                   <div class="single-post">
+                                       <div class="row">
+                                           <div class="col-12">
+                                               <div th:utext="${category.description}">
+                                               </div>
+                                               <p>
+                                               </p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+
+
+                           <th:block th:each="product : ${products}">
+                           <div class="tab-pane fade" th:id="${product.id}" role="tabpanel" aria-labelledby="v-pills-a-tab">
+                               <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                   <div class="col-lg-9 posts-list">
+                                       <div class="single-post">
+                                           <div class="row">
+                                               <div class="col-3">
+                                                   <th:block th:if="${product.image}">
+                                                   <img th:src="@{/static/upload/__${product.image}__}" class="img-fluid" width="300px">
+                                                    </th:block>
+                                               </div>
+                                               <div class="col-9">
+                                                   <div>
+                                                       <h1 th:text="${ 'FRIT TRONG ' + product.name}"></h1>
+                                                   </div>
+                                                   <p th:utext="${product.content}">
+                                                   </p>
+                                               </div>
+                                           </div>
+                                           <div class="blog_details">
+                                               <div class="row" style="margin-top: 2%">
+                                                   <p th:utext="${product.description}"></p>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           </th:block>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+
+   </main>
+
+    <footer th:replace="user/userLayout::app-footer" >
+    </footer>
+
+    <th:block th:replace="user/userLayout::block-script"></th:block>
+
+    </body>
+<!--    <script>-->
+<!--        var products = {} || products;-->
+<!--        products.intTable = function(){-->
+<!--            $("#products-datatables").DataTable({-->
+<!--                ajax: {-->
+<!--                    url: 'http://localhost:8080/api/products/',-->
+<!--                    method: "GET",-->
+<!--                    datatype: "json",-->
+<!--                    dataSrc: ""-->
+<!--                },-->
+<!--                columns: [-->
+
+<!--                    { data: "number", name : "Number" , title: "Number",defaultContent: "",orderable: true},-->
+<!--                    { data: "categories.name", name : "Categories" , title: "Categories",defaultContent: ""},-->
+<!--                    { data: "id", name : "Action", title : "Action",sortable: false,-->
+<!--                        orderable: false ,"render": function ( data, type, row, meta ) {-->
+<!--                            var str =  "<a href='javascript:;' title='edit product' onclick='products.get("+ data +")'><i class='fa fa-edit'></i></a> " +-->
+<!--                                "<a href='javascript:;' title='remove product' onclick='products.delete("+ data +")' ><i class='fa fa-trash'></i></a>";-->
+<!--                            return str ;-->
+<!--                        }-->
+<!--                    }-->
+<!--                ]-->
+<!--            });-->
+<!--        };-->
+<!--        products.initCategorieses = function () {-->
+<!--            $.ajax({-->
+<!--                url: "http://localhost:8080/api/categoriess/",-->
+<!--                method: "GET",-->
+<!--                dataType: "json",-->
+<!--                success: function (data) {-->
+<!--                    $('#categories').empty();-->
+<!--                    $.each(data, function (i, v) {-->
+<!--                        $('#categories').append(-->
+<!--                            "<option value='" + v.id + "'>" + v.name + "</option>"-->
+<!--                        );-->
+<!--                    });-->
+<!--                }-->
+<!--            });-->
+<!--        };-->
+
+
+<!--        products.resetForm =  function(){-->
+<!--            $('#formAddEdit')[0].reset();-->
+<!--            $('#name').val('');-->
+<!--            $('#temp').val('');-->
+<!--            $('#chukinung').val('');-->
+<!--            $('#sio2').val('');-->
+<!--            $('#description').val('');-->
+<!--            $('#useFor').val('');-->
+<!--            $('#al2o3').val('');-->
+<!--            $('#na2o').val('');-->
+<!--            $('#k2o').val('');-->
+<!--            $('#cao').val('');-->
+<!--            $('#bao').val('');-->
+<!--            $('#mgo').val('');-->
+<!--            $('#zno').val('');-->
+<!--            $('#b2o3').val('');-->
+<!--            $('#coe').val('');-->
+<!--            $('#kaolin').val('');-->
+<!--            $('#mesh').val('');-->
+<!--            $('#image').val('');-->
+<!--            //-->
+<!--            var validator = $( "#formAddEdit" ).validate();-->
+<!--            validator.resetForm();-->
+<!--        };-->
+
+
+
+
+<!--        products.get = function(id){-->
+<!--            console.log('get :'+ id);-->
+
+<!--            $.ajax({-->
+<!--                url : "http://localhost:8080/api/products/" + id,-->
+<!--                method : "GET",-->
+<!--                dataType : "json",-->
+<!--                success : function(data){-->
+<!--                    console.log(data);-->
+<!--                    $('#formAddEdit')[0].reset();-->
+<!--                    //-->
+<!--                    $('#modalTitle').html("Edit product");-->
+<!--                    $('#name').val(data.name);-->
+<!--                    $('#temp').val(data.temp);-->
+<!--                    $('#description').val(data.description);-->
+<!--                    $('#chukinung').val(data.chukinung);-->
+<!--                    $('#userFor').val(data.userFor);-->
+<!--                    $('#sio2').val(data.sio2);-->
+<!--                    $('#al2o3').val(data.al2o3);-->
+<!--                    $('#na2o').val(data.na2o);-->
+<!--                    $('#k2o').val(data.k2o);-->
+<!--                    $('#cao').val(data.cao);-->
+<!--                    $('#mgo').val(data.mgo);-->
+<!--                    $('#bao').val(data.bao);-->
+<!--                    $('#zno').val(data.zno);-->
+<!--                    $('#b2o3').val(data.b2o3);-->
+<!--                    $('#coe').val(data.coe);-->
+<!--                    $('#kaolin').val(data.kaolin);-->
+<!--                    $('#mesh').val(data.mesh);-->
+<!--                    $('#image').val(data.image);-->
+<!--                    $('#categories').val(data.categories);-->
+<!--                    $('#id').val(data.id);-->
+
+<!--                    $('#modalAddEdit').modal('show');-->
+<!--                }-->
+<!--            });-->
+<!--        };-->
+
+
+<!--        products.save = function(){-->
+<!--            if ($("#formAddEdit").valid()){-->
+<!--                if($('#id').val() == 0){-->
+<!--                    var productObj = {};-->
+<!--                    productObj.name =$('#name').val();-->
+<!--                    productObj.temp = $("#temp").val();-->
+<!--                    productObj.description = $("#description").val();-->
+<!--                    productObj.chukinung = $("#chukinung").val();-->
+<!--                    productObj.userFor = $("#userFor").val();-->
+<!--                    productObj.sio2 = $("#sio2").val();-->
+<!--                    productObj.al2o3 = $("#al2o3").val();-->
+<!--                    productObj.na2o = $("#na2o").val();-->
+<!--                    productObj.k2o = $("#k2o").val();-->
+<!--                    productObj.cao = $("#cao").val();-->
+<!--                    productObj.mgo = $("#mgo").val();-->
+<!--                    productObj.bao = $("#bao").val();-->
+<!--                    productObj.zno = $("#zno").val();-->
+<!--                    productObj.b2o3 = $("#b2o3").val();-->
+<!--                    productObj.coe = $("#coe").val();-->
+<!--                    productObj.image = $("#image").val();-->
+<!--                    productObj.kaolin = $("#kaolin").val();-->
+<!--                    productObj.mesh = $("#mesh").val();-->
+<!--                    let categoriesObj = {};-->
+<!--                    categoriesObj.id = $("#categories").val();-->
+<!--                    categoriesObj.name = $("#categories option:selected").html();-->
+<!--                    productObj.categories = categoriesObj;-->
+<!--                    //-->
+<!--                    $.ajax({-->
+<!--                        url : "http://localhost:8080/api/products/",-->
+<!--                        method : "POST",-->
+<!--                        dataType : "json",-->
+<!--                        contentType : "application/json",-->
+<!--                        data : JSON.stringify(productObj),-->
+<!--                        done: function(){-->
+<!--                            console.log("POST DONE");-->
+<!--                            $('#modalAddEdit').modal('hide');-->
+<!--                            $("#products-datatables").DataTable().ajax.reload();-->
+<!--                        },-->
+<!--                        success : function(data){-->
+<!--                            console.log("POST success");-->
+<!--                            $('#modalAddEdit').modal('hide');-->
+<!--                            $("#products-datatables").DataTable().ajax.reload();-->
+
+<!--                        }-->
+<!--                    });-->
+<!--                }-->
+<!--                else{-->
+<!--                    var productObj = {};-->
+<!--                    productObj.name =$('#name').val();-->
+<!--                    productObj.temp = $("#temp").val();-->
+<!--                    productObj.description = $("#description").val();-->
+<!--                    productObj.chukinung = $("#chukinung").val();-->
+<!--                    productObj.userFor = $("#userFor").val();-->
+<!--                    productObj.sio2 = $("#sio2").val();-->
+<!--                    productObj.al2o3 = $("#al2o3").val();-->
+<!--                    productObj.na2o = $("#na2o").val();-->
+<!--                    productObj.k2o = $("#k2o").val();-->
+<!--                    productObj.cao = $("#cao").val();-->
+<!--                    productObj.mgo = $("#mgo").val();-->
+<!--                    productObj.bao = $("#bao").val();-->
+<!--                    productObj.zno = $("#zno").val();-->
+<!--                    productObj.b2o3 = $("#b2o3").val();-->
+<!--                    productObj.coe = $("#coe").val();-->
+<!--                    productObj.image = $("#image").val();-->
+<!--                    productObj.kaolin = $("#kaolin").val();-->
+<!--                    productObj.mesh = $("#mesh").val();-->
+<!--                    let categoriesObj = {};-->
+<!--                    categoriesObj.id = $("#categories").val();-->
+<!--                    categoriesObj.name = $("#categories option:selected").html();-->
+<!--                    productObj.categories = categoriesObj;-->
+<!--                    $.ajax({-->
+<!--                        url : "http://localhost:8080/api/products/" + productObj.id,-->
+<!--                        method : "PUT",-->
+<!--                        dataType : "json",-->
+<!--                        contentType : "application/json",-->
+<!--                        data : JSON.stringify(productObj),-->
+<!--                        success : function(data){-->
+<!--                            $('#modalAddEdit').modal('hide');-->
+<!--                            $("#products-datatables").DataTable().ajax.reload();-->
+<!--                        }-->
+<!--                    });-->
+<!--                }-->
+<!--            }-->
+<!--        };-->
+
+<!--        products.init = function(){-->
+<!--            products.intTable();-->
+<!--            products.initValidation();-->
+<!--            products.initCategorieses()-->
+<!--        };-->
+
+<!--        $(document).ready(function(){-->
+<!--            products.init();-->
+<!--        });-->
+
+<!--    </script>-->
+</html>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>Industery HTML-5 Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+    
+  <!-- CSS here -->
+  <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/owl.carousel.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/gijgo.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/slicknav.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/animate.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/magnific-popup.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/fontawesome-all.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/themify-icons.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/slick.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/nice-select.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/responsive.css}">
+    <style>
+
+        #product-list {
+            display: flex;
+            padding: 2rem;
+            justify-content: center;
+        }
+
+        #product-list .product {
+            width: 30%;
+            float: left;
+            margin-left: 3.3%;
+            display: block;
+        }
+
+        #product-list .product:first-child {
+            margin-left: 0;
+        }
+
+        #product-list .product .imgcate {
+            box-sizing: border-box;
+            height: 300px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .titlecate{
+            color: #4d4d4d;
+        }
+
+        .nameaaaaaa{
+            color: #808080;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            align-self: flex-end;
+        }
+
+
+        .imgcate>img{
+
+            object-fit: cover;
+            display: block;
+            width: 100%;
+            max-width: none;
+            height: 100%;
+        }
+
+    </style>
+    <style>
+        .carousel-inner {
+            display: block;
+            height: 500px;
+            box-sizing: border-box;
+            overflow:hidden;
+
+        }
+
+        .carousel-inner .image__wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .carousel-inner .image__wrapper img {
+            object-fit: cover  !important;
+            height:auto;
+            width: 100% !important;
+        }
+
+        @media  only screen and (max-width: 768px) {
+
+            .carousel-inner .image__wrapper img {
+                margin: auto !important;
+                height: 100% !important;
+                width: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Preloader Start -->
+<div id="preloader-active" th:replace="user/userLayout::preloader">
+</div>
+<!-- Preloader Start -->
+
+<header>
+    <!-- Header Start -->
+    <div class="header-area">
+        <div class="main-header ">
+            <div class="header-top top-bg d-none d-lg-block">
+                <div class="container">
+                    <div class="col-xl-12">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="header-info-right">
+                                <ul>
+                                    <li>CÔNG TY CỔ PHẦN FRIT HƯƠNG GIANG
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header-info-left">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.huonggiangfrit.com.vn/change-language/en"><img src="/assets/img/huonggiang/icon-en.png"></a>
+                                        <a href="https://www.huonggiangfrit.com.vn/change-language/vi"><img src="/assets/img/huonggiang/icon-vn.png"></a>
+                                    </li>
+                                    <li>+84.2343.595.695</li>
+                                    <li style="margin:5px">huonggiangfrit@gmail.com</li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom  header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-1 col-md-1">
+                            <div class="logo" style="">
+                                <a href="/user/index"><img width="100px" src="https://www.huonggiangfrit.com.vn/assets/img/logo/logo_2.png" alt=""></a>
+                                <!-- <img src="https://www.huonggiangfrit.com.vn/assets/img/logo/huongiangicon.png" alt="..."> -->
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-md-8">
+                            <!-- Main-menu -->
+                            <div class="main-menu d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="/user/index">TRANG CHỦ</a></li>
+                                        <li><a href="/user/aboutUs">GIỚI THIỆU</a>
+                                        </li>
+                                        <li><a href="">SẢN PHẨM</a>
+                                            <ul class="submenu">
+                                                <th:block th:each="category : ${categories}">
+                                                    <li><a th:href="@{'/user/product/'+${category.id}}" th:text="${category.name}"></a></li>
+                                                </th:block>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/user/news">TIN TỨC</a></li>
+                                        <li><a href="/user/career">TUYỂN DỤNG</a></li>
+                                        <li><a href="/user/contact">LIÊN HỆ</a></li>
+                                    </ul>
+                                </nav>
+
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>
+
+<div class="bd-example" th:replace="user/userLayout::carousel">
+</div>
+
+    <main>
+        <section class="blog_area single-post-area section-padding">
+            <div style="text-align:center"><h3>TIN TỨC </h3>
+            </div>
+            <div class="container-fluid">
+                <div id="product-list">
+                    <th:block th:each="a : ${news}">
+                    <div class="product">
+                        <div class="imgcate"><a th:href="@{'/user/news/' + ${a.id}}">
+                            <th:block th:if="${a.image}">
+                                <img th:src="@{~/static/upload/__${a.image}__}">
+                            </th:block></a>
+                        </div>
+                        <div class="titlecate"><a th:href="@{/user/news/{id}(id=${a.id})}"><h3 th:text="*{a.title}"></h3></a></div>
+
+                        <div class="nameaaaaaa" th:text="*{a.content}">
+                        </div>
+                    </div>
+                    </th:block>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+<footer th:replace="user/userLayout::app-footer" >
+</footer>
+
+<th:block th:replace="user/userLayout::block-script"></th:block>
+</body>
+</html>
