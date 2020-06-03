@@ -18,23 +18,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-    <link th:href="@{../../../assets-admin/css/font-face.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/font-awesome-4.7/css/font-awesome.min.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/font-awesome-5/css/fontawesome-all.min.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/mdi-font/css/material-design-iconic-font.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/css/font-face.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/font-awesome-4.7/css/font-awesome.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/font-awesome-5/css/fontawesome-all.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/mdi-font/css/material-design-iconic-font.min.css}" rel="stylesheet" media="all">
     <!-- Bootstrap CSS-->
-    <link th:href="@{../../../assets-admin/vendor/bootstrap-4.1/bootstrap.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/bootstrap-4.1/bootstrap.min.css}" rel="stylesheet" media="all">
     <!-- Vendor CSS-->
-    <link th:href="@{../../../assets-admin/vendor/animsition/animsition.min.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/wow/animate.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/css-hamburgers/hamburgers.min.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/slick/slick.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/select2/select2.min.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/vendor/perfect-scrollbar/perfect-scrollbar.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/animsition/animsition.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/wow/animate.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/css-hamburgers/hamburgers.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/slick/slick.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/select2/select2.min.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/vendor/perfect-scrollbar/perfect-scrollbar.css}" rel="stylesheet" media="all">
     <!-- Main CSS-->
-    <link th:href="@{../../../assets-admin/css/theme.css}" rel="stylesheet" media="all">
-    <link th:href="@{../../../assets-admin/css/datatable.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/css/theme.css}" rel="stylesheet" media="all">
+    <link th:href="@{../../../static/assets-admin/css/datatable.css}" rel="stylesheet" media="all">
 </head>
 <body class="animsition">
 <div class="page-wrapper">
@@ -48,14 +48,14 @@
     <div class="page-container">
         <!-- HEADER DESKTOP-->
         <header th:replace="admin/layout::header-desktop"></header>
-        <!-- PAGE CONTAINER-->
+        <!-- MAIN CONTENT-->
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="float-right">
-                                <a th:href="@{admin/news/}" class="au-btn au-btn-icon au-btn--green au-btn--small">List News</a>
+                                <a th:href="@{admin/categories/}" class="au-btn au-btn-icon au-btn--green au-btn--small">List Categories</a>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -64,6 +64,12 @@
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6">
                                             <h2 th:utext="${title +'<small>  ' + term + '</small>'}"></h2>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <th:block th:if="${message}">
+                                                <div  th:class="${'alert ' + alert + ' alert-dismissible '}" role="alert" th:utext="${'<strong>'+term+'</strong> '+ message}" >
+                                                </div>
+                                            </th:block>
                                         </div>
                                     </div>
                                     <div class="clearfix">
@@ -75,36 +81,32 @@
                                             <strong th:text="${term}"></strong>
                                         </div>
                                         <div class="card-body card-block">
-                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/news/}+${action}" th:object="${news}">
+                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/categories/}+${action}" th:object="${categories}">
                                                 <input type="hidden" th:field="*{id}">
                                                 <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="name" class=" form-control-label">Name</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="name" name="text-input" placeholder="name" class="form-control" th:field="*{name}">
+                                                        <small class="form-text text-muted"></small>
+                                                    </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="title" class=" form-control-label">Title</label>
+                                                        <label for="description" class=" form-control-label">Description</label>
                                                     </div>
-                                                    <div id="title" class="col-12 col-md-9" th:text="*{title}">
-                                                    </div>
-                                                </div>
-                                                <div class="row form-group">
-                                                    <div class="col col-md-3">
-                                                        <label for="content" class=" form-control-label">Content</label>
-                                                    </div>
-                                                    <div class="col-12 col-md-9" id="content" th:utext="*{content}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row ">
-                                                    <div class="col col-md-3">
-                                                        <label for="file-input" class=" form-control-label">Current Image</label>
-                                                    </div>
-                                                    <div class="col-12 col-md-9" id="file-input">
-                                                        <input type="hidden" th:field = "*{image}"  class="form-control">
-                                                        <img th:src="@{/static/upload__*{image}__}" class="image" height="50px" width="50px">
+                                                    <div class="col-12 col-md-9">
+                                                        <textarea id="description" class="form-control" required placeholder="Description" th:field="*{description}" rows="3"></textarea>
+                                                        <small class="form-text text-muted"></small>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="fa fa-dot-circle-o"></i> Delete
+                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                                    </button>
+                                                    <button type="reset" class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-ban"></i> Reset
                                                     </button>
                                                 </div>
                                             </form>
@@ -124,6 +126,18 @@
 <th:block th:replace="admin/layout::block-script" >
 </th:block>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
+<script>
+    $('#description').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100
+    });
+    function setImage() {
+        var s = $('.fileDatas').val();
+        var i = s.split('\\').pop().split('/').pop();
+        $('#imageShow').val(i);
+    }
+</script>
 </body>
 </html>
 <!-- end document-->
