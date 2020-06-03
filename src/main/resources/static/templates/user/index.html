@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Industery HTML-5 Template </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="http://site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" th:href="@{/static/assets/css/bootstrap.min.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/owl.carousel.min.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/gijgo.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/slicknav.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/animate.min.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/magnific-popup.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/fontawesome-all.min.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/themify-icons.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/slick.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/nice-select.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/style.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/responsive.css}">
+        <style>
+            .carousel-inner {
+                display: block;
+                height: 500px;
+                box-sizing: border-box;
+                overflow:hidden;
+
+            }
+
+            .carousel-inner .image__wrapper {
+                display: flex;
+                justify-content: center;
+            }
+
+            .carousel-inner .image__wrapper img {
+                object-fit: cover  !important;
+                height:auto;
+                width: 100% !important;
+            }
+
+            @media  only screen and (max-width: 768px) {
+
+                .carousel-inner .image__wrapper img {
+                    margin: auto !important;
+                    height: 100% !important;
+                    width: auto !important;
+                }
+            }
+        </style>
+   </head>
+
+   <body>
+       
+    <!-- Preloader Start -->
+    <div id="preloader-active" th:replace="user/userLayout::preloader">
+    </div>
+    <!-- Preloader Start -->
+
+    <header >
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-top top-bg d-none d-lg-block">
+                    <div class="container">
+                        <div class="col-xl-12">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="header-info-right">
+                                    <ul>
+                                        <li>CÔNG TY CỔ PHẦN FRIT HƯƠNG GIANG
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="header-info-left">
+                                    <ul>
+                                        <li>
+                                            <a href="https://www.huonggiangfrit.com.vn/change-language/en"><img src="/static/assets/img/huonggiang/icon-en.png"></a>
+                                            <a href="https://www.huonggiangfrit.com.vn/change-language/vi"><img src="/static/assets/img/huonggiang/icon-vn.png"></a>
+                                        </li>
+                                        <li>+84.2343.595.695</li>
+                                        <li style="margin:5px">huonggiangfrit@gmail.com</li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-1 col-md-1">
+                                <div class="logo" style="">
+                                    <a href="/user/index"><img width="100px" src="https://www.huonggiangfrit.com.vn/assets/img/logo/logo_2.png" alt=""></a>
+                                    <!-- <img src="https://www.huonggiangfrit.com.vn/assets/img/logo/huongiangicon.png" alt="..."> -->
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/user/index">TRANG CHỦ</a></li>
+                                            <li><a href="/user/aboutUs">GIỚI THIỆU</a>
+                                            </li>
+                                            <li><a href="">SẢN PHẨM</a>
+                                                <ul class="submenu">
+                                                    <th:block th:each="category : ${categories}">
+                                                        <li><a th:href="@{'/user/product/'+${category.id}}" th:text="${category.name}"></a></li>
+                                                    </th:block>
+                                                </ul>
+                                            </li>
+                                            <li><a href="/user/news">TIN TỨC</a></li>
+                                            <li><a href="/user/career">TUYỂN DỤNG</a></li>
+                                            <li><a href="/user/contact">LIÊN HỆ</a></li>
+                                        </ul>
+                                    </nav>
+
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+    <div class="bd-example" th:replace="user/userLayout::carousel">
+
+    </div>
+    <main>
+
+
+        <!-- Safe Industery Start -->
+        <div class="safe-industery-area section-padd-top30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md pr-0">
+                        <div class="safe-caption pt-10 mb-40">
+                            <h2>HƯƠNG GIANG – Đỉnh cao của chất lượng</h2>
+                            <p class="safe-pera-one">Chắc lọc được các giá trị cốt lõi trong sản xuất frit, kết hợp với đầu tư đồng bộ trang thiết bị hiện đại để tạo ra các sản phẩm đáp ứng yêu cầu chất lượng của Khách hàng</p>
+                            <p  class="safe-pera-two">Sản phẩm với chất lượng ổn định, giá thành cạnh tranh nhất, đi kèm với việc cung cấp dịch vụ hỗ trợ kỹ thuật tốt nhất đến các khách hàng.</p>
+                            <p  class="safe-pera-three">Tinh thần hợp tác, tôn trọng và cùng nhau phát triển sẽ đưa tất cả chúng ta đến gần với nhau hơn.</p>
+                            <!-- btn -->
+                            <a href="/user/product/1" class="btn">Sản Phẩm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Safe Industery End -->
+
+        <!-- Testimonial Start -->
+        <div class="testimonial-area t-bg testimonial-padding">
+            <div class="container ">
+               <div class="row d-flex justify-content-center">
+                    <div class="col-xl-11 col-lg-11 col-md-9">
+                        <div class="h1-testimonial-active">
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                                 <!-- Testimonial Content -->
+                                <div class="testimonial-caption ">
+                                    <div class="testimonial-top-cap">
+                                        <th:block th:each="about : ${aboutUs}">
+                                        <p>VỀ CHÚNG TÔI</p>
+                                        <p th:text="${about.title}"></p>
+                                        </th:block>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                       <div class="founder-text">
+                                           <a href="/user/aboutUs" class="btn">XEM THÊM</a>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial text-center">
+                                 <!-- Testimonial Content -->
+                                <div class="testimonial-caption ">
+                                    <div class="testimonial-top-cap">
+                                        <th:block th:each="about : ${aboutUs}">
+                                            <p>CÔNG TY CỔ PHẦN HƯƠNG GIANG</p>
+                                            <p th:text="${about.description}"></p>
+                                        </th:block>
+                                    </div>
+                                    <!-- founder -->
+                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                       <div class="founder-text">
+                                           <a href="/user/aboutUs" class="btn">XEM THÊM</a>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+        <div class="david-droga-area section-padding30">
+
+            <div class="container">
+                <div class="safe-industery-area section-padd">
+                    <div class="safe-caption pt-10 mb-40">
+
+                        <h2>Tin tức mới nhất</h2>
+
+                    </div>
+                </div>
+                <div class="row ">
+                    <th:block th:each="a : ${news}">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <!-- single-david -->
+                        <div class="single-david mb-30">
+                            <div class="david-img">
+                                <th:block th:if="${a.image}">
+                                    <img th:src="@{/static/upload/__${a.image}__}" height="350px" width="100%">
+                                </th:block>
+                                </div>
+                            <div class="david-captoin">
+                                <ul class="david-info">
+                                    <li>2020-03-26 09:36:15 </li>
+                                    <li></li>
+                                </ul>
+                                <h2><a th:text="${a.title}" class="text-truncate" th:href="@{'/user/news/' + ${a.id}}"></a></h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <footer th:replace="user/userLayout::app-footer" >
+    </footer>
+   
+	<th:block th:replace="user/userLayout::block-script"></th:block>
+    </body>
+</html>

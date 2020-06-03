@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Industery HTML-5 Template </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="/static/assets/img/favicon.ico">
+
+		<!-- CSS here -->
+            <link rel="stylesheet" th:href="@{/static/assets/css/bootstrap.min.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/owl.carousel.min.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/gijgo.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/slicknav.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/animate.min.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/magnific-popup.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/fontawesome-all.min.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/themify-icons.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/slick.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/nice-select.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/style.css}">
+            <link rel="stylesheet" th:href="@{/static/assets/css/responsive.css}">
+   </head>
+
+   <body>
+       
+<!--    &lt;!&ndash; Preloader Start &ndash;&gt;-->
+<!--     <div id="preloader-active">-->
+<!--        <div class="preloader d-flex align-items-center justify-content-center">-->
+<!--            <div class="preloader-inner position-relative">-->
+<!--                <div class="preloader-circle"></div>-->
+<!--                <div class="preloader-img pere-text">-->
+<!--                    <img src="assets/img/logo/logo.png" alt="">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Preloader Start &ndash;&gt;-->
+
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-top top-bg d-none d-lg-block">
+                    <div class="container">
+                        <div class="col-xl-12">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="header-info-right">
+                                    <ul>
+                                        <li>CÔNG TY CỔ PHẦN FRIT HƯƠNG GIANG
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="header-info-left">
+                                    <ul>
+                                        <li>
+                                            <a href="https://www.huonggiangfrit.com.vn/change-language/en"><img src="/static/assets/img/huonggiang/icon-en.png"></a>
+                                            <a href="https://www.huonggiangfrit.com.vn/change-language/vi"><img src="/static/assets/img/huonggiang/icon-vn.png"></a>
+                                        </li>
+                                        <li>+84.2343.595.695</li>
+                                        <li style="margin:5px">huonggiangfrit@gmail.com</li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom  header-sticky">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-1 col-md-1">
+                                <div class="logo" style="">
+                                    <a href="/user/index"><img width="100px" src="https://www.huonggiangfrit.com.vn/assets/img/logo/logo_2.png" alt=""></a>
+                                    <!-- <img src="https://www.huonggiangfrit.com.vn/assets/img/logo/huongiangicon.png" alt="..."> -->
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/user/index">TRANG CHỦ</a></li>
+                                            <li><a href="/user/aboutUs">GIỚI THIỆU</a>
+                                            </li>
+                                            <li><a href="">SẢN PHẨM</a>
+                                                <ul class="submenu">
+                                                    <th:block th:each="category : ${categories}">
+                                                        <li><a th:href="@{'/user/product/'+${category.id}}" th:text="${category.name}"></a></li>
+                                                    </th:block>
+                                                </ul>
+                                            </li>
+                                            <li><a href="/user/news">TIN TỨC</a></li>
+                                            <li><a href="/user/career">TUYỂN DỤNG</a></li>
+                                            <li><a href="/user/contact">LIÊN HỆ</a></li>
+                                        </ul>
+                                    </nav>
+
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+
+    <main>
+
+
+
+        <div class="whole-wrap">
+            <div class="container box_1170">
+                <div class="section-top-border">
+                    <h2 class="mb-30" style="text-align:center">VỀ CHÚNG TÔI</h2>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="/static/assets/img/huonggiang/5c341e5c8e8975d72c98-removebg-preview.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-9 mt-sm-20">
+                            <p style="font-size:25px ;line-height: 30px;">Công ty Cổ phần Frit Hương Giang là đơn vị chuyên sản xuất các mặt hàng thủy tinh và các sản phẩm từ thủy tinh, trong đó sản xuất các loại men Frit là mặt hàng chủ yếu.</p>
+
+                            <p style="font-size:20px;line-height: 30px;">Công ty Cổ phần Frit Hương Giang có địa chỉ tại Khu B, KCN Phong Điền, thị trấn Phong Điền, huyện Phong Điền, tỉnh Thừa Thiên Huế, Việt Nam với diện tích hơn 3,6 hecta, được thành lập vào ngày 03 tháng 01 năm 2019, là chủ đầu tư dự án nhà máy sản xuất men Frit với công suất 20,000 tấn sản phẩm/năm.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="font-size:22px ;line-height: 30px;">
+
+                      Huế được xem là cái nôi của ngành công nghiệp sản xuất men frit ở Việt Nam, đáp ứng hơn 70% nhu cầu men frit cho các nhà máy sản xuất gốm sứ trong nước. <br>
+
+                      Được thành lập từ tháng 1 năm 2019 tại khu công nghiệp Phong Điền, tỉnh Thừa Thiên Huế, công ty Cổ phần frit Hương Giang tự hào là một đơn vị cung cấp men frit tại Huế và đã nhanh chóng góp mặt vào thị trường nguyên liệu men frit ở Việt Nam từ tháng 8 năm 2019.<br>
+
+                      Là công ty thành lập trong giai đoạn phát triển đỉnh cao của ngành sản xuất frit cùng với đội ngũ quản lý giàu kinh nghiệm trong lĩnh vực sản xuất men frit, công ty Cổ phần frit Hương Giang đã áp dụng nhiều máy móc thiết bị hiện đại, cải tiến các quy trình sản xuất để tạo ra các sản phẩm men frit đảm bảo chất lượng, có độ ổn định cao.<br>
+                      Với mục tiêu tăng trưởng và phát triển bền vững, chúng tôi luôn nỗ lực để khẳng định thương hiệu và tạo ra giá trị trong từng sản phẩm.<br>
+                      Công ty chúng tôi chuyên sản xuất các sản phẩm frit trong, frit bán đục, frit titan và nguyên liệu cho men lót.
+
+
+                </div>
+                <div class="section-top-border">
+                    <h3 class="mb-30">DÂY CHUYỀN CÔNG NGHỆ-THIẾT BỊ HIỆN ĐẠI:</h3>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <blockquote class="generic-blockquote" style="font-size:18px ;line-height: 33px;">
+                                  Các sản phẩm của Công ty Cổ phần Frit Hương Giang được sản xuất dựa trên nguyên liệu chất lượng, chọn lọc, trải qua quá trình vận hành tuân thủ mọi quy chuẩn sản xuất nghiêm ngặt đảm bảo chất lượng ổn định cho sản phẩm.<br>
+                                  Áp dụng công nghệ lò hóa khí than tiết kiệm nhiên liệu, máy móc hiện đại nhằm tiết kiệm chi phí sản xuất, nâng cao năng suất, chất lượng sản phẩm, bảo vệ môi trường. Vì thế, các sản phẩm luôn đạt chất lượng với giá cả hợp lí.<br>
+                                  Công nghệ lò bể sản xuất Frit hiện đại, áp dụng công nghệ mới khả năng sản phẩm đạt chất lượng cao, giá cả cạnh tranh.
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-top-border">
+                    <h3>THƯ VIỆN ẢNH</h3>
+                    <div class="row gallery-item">
+                        <div class="col-md-4">
+                            <a href="/static/assets/img/huonggiang/e6a440c5d4102f4e7601.jpg" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url(/static/assets/img/huonggiang/e6a440c5d4102f4e7601.jpg);">							</div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/static/assets/img/huonggiang/f547681fe5ca1e9447db.jpg" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url(/static/assets/img/huonggiang/f547681fe5ca1e9447db.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/static/assets/img/huonggiang/chuyengia.jpg" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url(/static/assets/img/huonggiang/chuyengia.jpg);"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url();"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url();"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url();"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url();"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="" class="img-pop-up">
+                                <div class="single-gallery-image" style="background: url();"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-top-border">
+                    <h3 class="mb-30">Các Sản Phẩm chủ lực của công ty:</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="single-defination">
+                                <h4 class="mb-20">FRIT TRONG HGT05  , HGT03 </h4>
+                                <p>
+
+                                    ĐẶC TÍNH: Sản phẩm này thích hợp để xây dựng các bài men bóng áp dụng cho xương gạch ốp tường nung một lần hoặc nung hai lần. Các sản phẩm này có thể phối trộn với các loại frit khác hoặc zircon để đáp ứng các yêu cầu về độ trắng đục, chất lượng bề mặt, hệ số giãn nở nhiệt … tùy theo yêu cầu của từng nhà máy.
+                                </p>
+
+                                <a class="btn" href="/user/product/1"> XEM THÊM</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="single-defination">
+                                <h4 class="mb-20">FRIT TRONG HGT15 </h4>
+                                <p>
+
+                                    ĐẶC TÍNH: Sản phẩm này thích hợp để xây dựng các bài men bóng áp dụng cho gạch ốp tường nung một lần với nhiệt độ nung cao hoặc gạch lát nền nhiệt nung thấp. Sản phẩm này có thể phối trộn với các loại frit khác hoặc zircon để đáp ứng các yêu cầu chất lượng theo yêu cầu của từng nhà máy.
+                                </p>
+
+                                <a class="btn" href="/user/product/1"> XEM THÊM</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="single-defination">
+                                <h4 class="mb-20">FRIT TRONG HGT26 </h4>
+                                <p>
+
+                                    ĐẶC TÍNH: Sản phẩm này thích hợp để xây dựng bài men bóng cho chủng loại gạch lát nền trong điều kiện nhiệt độ nung cao. Sản phẩm này có thể phối trộn với zircon hoặc các loại frit khác để đáp ứng yêu câu chất lượng của từng nhà máy.
+                                </p>
+
+                                <a class="btn" href="/user/product/1"> XEM THÊM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </main>
+    <footer th:replace="user/userLayout::app-footer" >
+    </footer>
+   
+	<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script th:src="@{/static/assets/js/vendor/modernizr-3.5.0.min.js}"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script th:src="@{/static/assets/js/vendor/jquery-1.12.4.min.js}"></script>
+        <script th:src="@{/static/assets/js/popper.min.js}"></script>
+        <script th:src="@{/static/assets/js/bootstrap.min.js}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script th:src="@{/static/assets/js/jquery.slicknav.min.js}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script th:src="@{/static/assets/js/owl.carousel.min.js}"></script>
+        <script th:src="@{/static/assets/js/slick.min.js}"></script>
+        <!-- Date Picker -->
+        <script th:src="@{/static/assets/js/gijgo.min.js}"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script th:src="@{/static/assets/js/wow.min.js}"></script>
+		<script th:src="@{/static/assets/js/animated.headline.js}"></script>
+        <script th:src="@{/static/assets/js/jquery.magnific-popup.js}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script th:src="@{/static/assets/js/jquery.scrollUp.min.js}"></script>
+        <script th:src="@{/static/assets/js/jquery.nice-select.min.js}"></script>
+		<script th:src="@{/static/assets/js/jquery.sticky.js}"></script>
+        
+        <!-- contact js -->
+        <script th:src="@{/static/assets/js/contact.js}"></script>
+        <script th:src="@{/static/assets/js/jquery.form.js}"></script>
+        <script th:src="@{/static/assets/js/jquery.validate.min.js}"></script>
+        <script th:src="@{/static/assets/js/mail-script.js}"></script>
+        <script th:src="@{/static/assets/js/jquery.ajaxchimp.min.js}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script th:src="@{/static/assets/js/plugins.js}"></script>
+        <script th:src="@{/static/assets/js/main.js}"></script>
+        
+    </body>
+</html>
