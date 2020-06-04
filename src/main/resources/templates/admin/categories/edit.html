@@ -81,7 +81,7 @@
                                             <strong th:text="${term}"></strong>
                                         </div>
                                         <div class="card-body card-block">
-                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/categories/add}" th:object="${categories}">
+                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/categories/edit}" th:object="${categories}">
                                                 <input type="hidden" th:field="*{id}">
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
