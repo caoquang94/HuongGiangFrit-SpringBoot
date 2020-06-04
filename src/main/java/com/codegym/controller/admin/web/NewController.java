@@ -156,7 +156,7 @@ public class NewController extends com.codegym.controller.admin.web.AdminBaseCon
         //
         newsService.save(news);
         //
-        ModelAndView modelAndView = new ModelAndView("/admin/news/add");
+        ModelAndView modelAndView = new ModelAndView("admin/news/add");
         modelAndView.addObject("news",news);
         modelAndView.addObject("action",ACTION_EDIT);
         modelAndView.addObject("term",TERM);
@@ -172,7 +172,7 @@ public class NewController extends com.codegym.controller.admin.web.AdminBaseCon
         News news = newsService.findById(id);
         if(news != null) {
 
-            ModelAndView modelAndView = new ModelAndView("/admin/news/add");
+            ModelAndView modelAndView = new ModelAndView("admin/news/add");
             modelAndView.addObject("news",news);
             modelAndView.addObject("action",ACTION_EDIT);
             modelAndView.addObject("term",TERM);
@@ -191,7 +191,7 @@ public class NewController extends com.codegym.controller.admin.web.AdminBaseCon
     public ModelAndView showDeleteForm(@PathVariable Long id){
         News news = newsService.findById(id);
         if( news != null) {
-            ModelAndView modelAndView = new ModelAndView("/admin/news/delete");
+            ModelAndView modelAndView = new ModelAndView("admin/news/delete");
 
             modelAndView.addObject("news",news);
             modelAndView.addObject("action",ACTION_DELETE);

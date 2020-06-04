@@ -44,7 +44,7 @@ feedBacks.get = function (id) {
     console.log('get :' + id);
 
     $.ajax({
-        url: "http://localhost:8080/api/feedBacks/" + id,
+        url: globlaConfig.url +"api/feedBacks/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -76,7 +76,7 @@ feedBacks.save = function () {
             $('#modalSuccess').modal('show');
             //
             $.ajax({
-                url: "http://localhost:8080/feedback/",
+                url: globlaConfig.url +"feedback/",
                 method: "POST",
                 dataType: "json",
                 contentType: "application/json",
@@ -91,7 +91,7 @@ feedBacks.save = function () {
             feedBackObj.id = $('#id').val();
 
             $.ajax({
-                url: "http://localhost:8080/api/feedBacks/" + feedBackObj.id,
+                url: globlaConfig.url +"api/feedBacks/" + feedBackObj.id,
                 method: "PUT",
                 dataType: "json",
                 contentType: "application/json",
