@@ -83,7 +83,7 @@ public class CategoriesController extends AdminBaseController {
     public ModelAndView saveEditForm(HttpServletRequest request,@ModelAttribute("categories") Categories categories){
         categoriesService.save(categories);
         //
-        ModelAndView modelAndView = new ModelAndView("/admin/categories/edit");
+        ModelAndView modelAndView = new ModelAndView("admin/categories/edit");
         modelAndView.addObject("categories",categories);
         modelAndView.addObject("action",ACTION_EDIT);
         modelAndView.addObject("term",TERM);
@@ -99,7 +99,7 @@ public class CategoriesController extends AdminBaseController {
         Categories categories = categoriesService.findById(id);
         if(categories != null) {
 
-            ModelAndView modelAndView = new ModelAndView("/admin/categories/edit");
+            ModelAndView modelAndView = new ModelAndView("admin/categories/edit");
             modelAndView.addObject("categories",categories);
             modelAndView.addObject("action",ACTION_EDIT);
             modelAndView.addObject("term",TERM);
@@ -118,7 +118,7 @@ public class CategoriesController extends AdminBaseController {
     public ModelAndView showDeleteForm(@PathVariable Long id){
         Categories categories = categoriesService.findById(id);
         if( categories != null) {
-            ModelAndView modelAndView = new ModelAndView("/admin/categories/delete");
+            ModelAndView modelAndView = new ModelAndView("admin/categories/delete");
 
             modelAndView.addObject("categories",categories);
             modelAndView.addObject("action",ACTION_DELETE);
