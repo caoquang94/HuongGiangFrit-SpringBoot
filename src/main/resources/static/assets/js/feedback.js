@@ -44,7 +44,7 @@ feedBacks.get = function (id) {
     console.log('get :' + id);
 
     $.ajax({
-        url: "https://frithuonggiang.herokuapp.com/api/feedBacks/" + id,
+        url: globlaConfig.url +"api/feedBacks/" + id,
         method: "GET",
         dataType: "json",
         success: function (data) {
@@ -76,7 +76,7 @@ feedBacks.save = function () {
             $('#modalSuccess').modal('show');
             //
             $.ajax({
-                url: "https://frithuonggiang.herokuapp.com/feedback/",
+                url: globlaConfig.url +"feedback/",
                 method: "POST",
                 dataType: "json",
                 contentType: "application/json",
@@ -91,14 +91,14 @@ feedBacks.save = function () {
             feedBackObj.id = $('#id').val();
 
             $.ajax({
-                url: "https://frithuonggiang.herokuapp.com/api/feedBacks/" + feedBackObj.id,
+                url: globlaConfig.url +"api/feedBacks/" + feedBackObj.id,
                 method: "PUT",
                 dataType: "json",
                 contentType: "application/json",
                 data: JSON.stringify(feedBackObj),
                 success: function (data) {
                     $('#modalAddEdit').modal('hide');
-                    window.location.href = 'https://frithuonggiang.herokuapp.com/user/index';
+                    window.location.href = 'http://localhost:8080/user/index';
                 }
             });
         }
@@ -106,7 +106,7 @@ feedBacks.save = function () {
 };
 
 feedBacks.success = function(){
-    window.location.href = 'https://frithuonggiang.herokuapp.com/user/index';
+    window.location.href = 'http://localhost:8080/user/index';
 }
 feedBacks.init = function () {
     feedBacks.initValidation();

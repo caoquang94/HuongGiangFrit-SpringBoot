@@ -48,7 +48,7 @@
     <div class="page-container">
         <!-- HEADER DESKTOP-->
         <header th:replace="admin/layout::header-desktop"></header>
-        <!-- PAGE CONTAINER-->
+        <!-- MAIN CONTENT-->
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
@@ -65,6 +65,12 @@
                                         <div class="col-md-6 col-sm-6">
                                             <h2 th:utext="${title +'<small>  ' + term + '</small>'}"></h2>
                                         </div>
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <th:block th:if="${message}">
+                                                <div  th:class="${'alert ' + alert + ' alert-dismissible '}" role="alert" th:utext="${'<strong>'+term+'</strong> '+ message}" >
+                                                </div>
+                                            </th:block>
+                                        </div>
                                     </div>
                                     <div class="clearfix">
                                     </div>
@@ -75,20 +81,32 @@
                                             <strong th:text="${term}"></strong>
                                         </div>
                                         <div class="card-body card-block">
-                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/categories/delete}" th:object="${categories}">
+                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/categories/edit}" th:object="${categories}">
                                                 <input type="hidden" th:field="*{id}">
-                                                <div class="row form-group">
-                                                </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
                                                         <label for="name" class=" form-control-label">Name</label>
                                                     </div>
-                                                    <div id="name" class="col-12 col-md-9" th:text="*{name}">
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="name" name="text-input" placeholder="name" class="form-control" th:field="*{name}">
+                                                        <small class="form-text text-muted"></small>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="description" class=" form-control-label">Description</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <textarea id="description" class="form-control" required placeholder="Description" th:field="*{description}" rows="3"></textarea>
+                                                        <small class="form-text text-muted"></small>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="fa fa-dot-circle-o"></i> Delete
+                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                                    </button>
+                                                    <button type="reset" class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-ban"></i> Reset
                                                     </button>
                                                 </div>
                                             </form>
@@ -108,6 +126,18 @@
 <th:block th:replace="admin/layout::block-script" >
 </th:block>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
+<script>
+    $('#description').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100
+    });
+    function setImage() {
+        var s = $('.fileDatas').val();
+        var i = s.split('\\').pop().split('/').pop();
+        $('#imageShow').val(i);
+    }
+</script>
 </body>
 </html>
 <!-- end document-->
