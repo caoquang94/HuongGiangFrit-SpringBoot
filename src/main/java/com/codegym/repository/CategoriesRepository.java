@@ -19,7 +19,4 @@ public interface CategoriesRepository extends JpaRepository<Categories, Long> {
     @Query("update Categories a set a.deleted=1 where a.id=:id")
     void deleteById(@Param("id") Long id);
 
-    @Query("select e from Categories e order by e.id DESC")
-    List<Categories> findAll();
-
 }

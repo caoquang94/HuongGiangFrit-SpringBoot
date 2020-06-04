@@ -200,7 +200,7 @@
                     <div class="product">
                         <div class="imgcate"><a th:href="@{'/user/news/' + ${a.id}}">
                             <th:block th:if="${a.image}">
-                                <img th:src="@{~/static/upload/__${a.image}__}">
+                                <img th:src="@{/upload/__${a.image}__}">
                             </th:block></a>
                         </div>
                         <div class="titlecate"><a th:href="@{/user/news/{id}(id=${a.id})}"><h3 th:text="*{a.title}"></h3></a></div>
