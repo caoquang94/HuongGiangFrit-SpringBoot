@@ -158,7 +158,7 @@ public class AboutUsController extends AdminBaseController {
         //
         aboutUsService.save(aboutUs);
         //
-        ModelAndView modelAndView = new ModelAndView("/admin/aboutUs/add");
+        ModelAndView modelAndView = new ModelAndView("admin/aboutUs/add");
         modelAndView.addObject("aboutUs",aboutUs);
         modelAndView.addObject("action",ACTION_EDIT);
         modelAndView.addObject("term",TERM);
@@ -174,7 +174,7 @@ public class AboutUsController extends AdminBaseController {
         AboutUs aboutUs = aboutUsService.findById(id);
         if(aboutUs != null) {
 
-            ModelAndView modelAndView = new ModelAndView("/admin/aboutUs/add");
+            ModelAndView modelAndView = new ModelAndView("admin/aboutUs/add");
             modelAndView.addObject("aboutUs",aboutUs);
             modelAndView.addObject("action",ACTION_EDIT);
             modelAndView.addObject("term",TERM);
@@ -193,7 +193,7 @@ public class AboutUsController extends AdminBaseController {
     public ModelAndView showDeleteForm(@PathVariable Long id){
         AboutUs aboutUs = aboutUsService.findById(id);
         if( aboutUs != null) {
-            ModelAndView modelAndView = new ModelAndView("/admin/aboutUs/delete");
+            ModelAndView modelAndView = new ModelAndView("admin/aboutUs/delete");
 
             modelAndView.addObject("aboutUs",aboutUs);
             modelAndView.addObject("action",ACTION_DELETE);

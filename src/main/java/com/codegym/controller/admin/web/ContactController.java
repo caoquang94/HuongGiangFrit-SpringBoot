@@ -61,7 +61,7 @@ public class ContactController extends com.codegym.controller.admin.web.AdminBas
     public ModelAndView saveEditForm(HttpServletRequest request,@ModelAttribute("contact") Contact contact){
         contactService.save(contact);
         //
-        ModelAndView modelAndView = new ModelAndView("/admin/contact/add");
+        ModelAndView modelAndView = new ModelAndView("admin/contact/add");
         modelAndView.addObject("contact",contact);
         modelAndView.addObject("action",ACTION_EDIT);
         modelAndView.addObject("term",TERM);
@@ -77,7 +77,7 @@ public class ContactController extends com.codegym.controller.admin.web.AdminBas
         Contact contact = contactService.findById(id);
         if(contact != null) {
 
-            ModelAndView modelAndView = new ModelAndView("/admin/contact/add");
+            ModelAndView modelAndView = new ModelAndView("admin/contact/add");
             modelAndView.addObject("contact",contact);
             modelAndView.addObject("action",ACTION_EDIT);
             modelAndView.addObject("term",TERM);
@@ -96,7 +96,7 @@ public class ContactController extends com.codegym.controller.admin.web.AdminBas
     public ModelAndView showDeleteForm(@PathVariable Long id){
         Contact contact = contactService.findById(id);
         if( contact != null) {
-            ModelAndView modelAndView = new ModelAndView("/admin/contact/delete");
+            ModelAndView modelAndView = new ModelAndView("admin/contact/delete");
 
             modelAndView.addObject("contact",contact);
             modelAndView.addObject("action",ACTION_DELETE);

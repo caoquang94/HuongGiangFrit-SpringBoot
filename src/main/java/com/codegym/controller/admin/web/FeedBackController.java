@@ -67,6 +67,6 @@ public class FeedBackController extends AdminBaseController {
     @PostMapping("/feedBack/delete")
     public String deleteProvince(@ModelAttribute("feedBack") FeedBack feedBack){
         feedBackService.remove(feedBack.getId());
-        return "redirect:/feedBack/";
+        return "redirect:admin/feedBack/";
     }
 }

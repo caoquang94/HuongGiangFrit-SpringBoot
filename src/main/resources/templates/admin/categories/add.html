@@ -81,7 +81,7 @@
                                             <strong th:text="${term}"></strong>
                                         </div>
                                         <div class="card-body card-block">
-                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/categories/add}" th:object="${categories}" novalidate="novalidate">
+                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/news/}+${action}" th:object="${categories}" novalidate="novalidat">
                                                 <input type="hidden" th:field="*{id}">
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
@@ -137,25 +137,6 @@
         var i = s.split('\\').pop().split('/').pop();
         $('#imageShow').val(i);
     }
-    $(document).ready(function () {
-
-        $("#valid").validate({
-            rules: {
-                name: {
-                    required: true,
-                    maxlength: 3,
-                },
-                description: {
-                    required: true,
-                    minlength: 3,
-                },
-            },
-            messages: {
-                name: {required: "Please enter your name"},
-                description: {required: "Please enter receiver name up to 3 characters"},
-            },
-        });
-    });
 </script>
 </body>
 </html>

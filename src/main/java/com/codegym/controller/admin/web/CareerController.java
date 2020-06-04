@@ -157,7 +157,7 @@ public class CareerController extends com.codegym.controller.admin.web.AdminBase
         //
         careerService.save(career);
         //
-        ModelAndView modelAndView = new ModelAndView("/admin/career/add");
+        ModelAndView modelAndView = new ModelAndView("admin/career/add");
         modelAndView.addObject("career",career);
         modelAndView.addObject("action",ACTION_EDIT);
         modelAndView.addObject("term",TERM);
@@ -173,7 +173,7 @@ public class CareerController extends com.codegym.controller.admin.web.AdminBase
         Career career = careerService.findById(id);
         if(career != null) {
 
-            ModelAndView modelAndView = new ModelAndView("/admin/career/add");
+            ModelAndView modelAndView = new ModelAndView("admin/career/add");
             modelAndView.addObject("career",career);
             modelAndView.addObject("action",ACTION_EDIT);
             modelAndView.addObject("term",TERM);
@@ -192,7 +192,7 @@ public class CareerController extends com.codegym.controller.admin.web.AdminBase
     public ModelAndView showDeleteForm(@PathVariable Long id){
         Career career = careerService.findById(id);
         if( career != null) {
-            ModelAndView modelAndView = new ModelAndView("/admin/career/delete");
+            ModelAndView modelAndView = new ModelAndView("admin/career/delete");
 
             modelAndView.addObject("career",career);
             modelAndView.addObject("action",ACTION_DELETE);

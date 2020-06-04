@@ -165,7 +165,7 @@ public class ProductController extends com.codegym.controller.admin.web.AdminBas
         List<Categories> categories = categoriesService.findAll();
         productService.save(product);
         //
-        ModelAndView modelAndView = new ModelAndView("/admin/product/add");
+        ModelAndView modelAndView = new ModelAndView("admin/product/add");
         modelAndView.addObject("product",product);
         modelAndView.addObject("categories", categories);
         modelAndView.addObject("action",ACTION_EDIT);
@@ -183,7 +183,7 @@ public class ProductController extends com.codegym.controller.admin.web.AdminBas
         Product product = productService.findById(id);
         if(product != null) {
             List<Categories> categories = categoriesService.findAll();
-            ModelAndView modelAndView = new ModelAndView("/admin/product/add");
+            ModelAndView modelAndView = new ModelAndView("admin/product/add");
             modelAndView.addObject("product",product);
             modelAndView.addObject("categories",categories);
             modelAndView.addObject("action",ACTION_EDIT);
@@ -203,7 +203,7 @@ public class ProductController extends com.codegym.controller.admin.web.AdminBas
     public ModelAndView showDeleteForm(@PathVariable Long id){
         Product product = productService.findById(id);
         if( product != null) {
-            ModelAndView modelAndView = new ModelAndView("/admin/product/delete");
+            ModelAndView modelAndView = new ModelAndView("admin/product/delete");
 
             modelAndView.addObject("product",product);
             modelAndView.addObject("action",ACTION_DELETE);
