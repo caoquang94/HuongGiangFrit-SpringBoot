@@ -123,7 +123,7 @@ public class UserController extends AdminBaseController {
 
         feedBackService.findAll();
         //
-        ModelAndView modelAndView = new ModelAndView("/user/single-news");
+        ModelAndView modelAndView = new ModelAndView("user/single-news");
         modelAndView.addObject("news",news);
         modelAndView.addObject("action",ACTION_EDIT);
 
@@ -137,7 +137,7 @@ public class UserController extends AdminBaseController {
         List<Contact> contacts = contactService.findAll();
         News news = newService.findById(id);
         if(news != null) {
-            ModelAndView modelAndView = new ModelAndView("/user/single-news");
+            ModelAndView modelAndView = new ModelAndView("user/single-news");
             modelAndView.addObject("news",news);
             modelAndView.addObject("categories",categories);
             modelAndView.addObject("contacts", contacts);
@@ -155,10 +155,12 @@ public class UserController extends AdminBaseController {
         List<Categories> categories = categoriesService.findAll();
         Categories category=categoriesService.findById(1);
         List<Product> products = productService.findAllByCategories(1);
+        List<Contact> contacts = contactService.findAll();
         ModelAndView modelAndView = new ModelAndView("user/product");
         modelAndView.addObject("categories", categories);
         modelAndView.addObject("category", category);
         modelAndView.addObject("products", products);
+        modelAndView.addObject("contacts", contacts);
         return modelAndView;
     }
     @GetMapping("/product/{id}")
