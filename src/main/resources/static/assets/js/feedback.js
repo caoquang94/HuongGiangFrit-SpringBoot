@@ -106,7 +106,7 @@ feedBacks.save = function () {
 };
 
 feedBacks.success = function(){
-    window.location.href = 'http://localhost:8080/user/index';
+    window.location.href = globlaConfig.url + "user/index";
 }
 feedBacks.init = function () {
     feedBacks.initValidation();
