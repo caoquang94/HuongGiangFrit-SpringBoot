@@ -1,7 +1,9 @@
 package com.codegym.controller.admin.web;
 
 import com.codegym.model.Categories;
+import com.codegym.model.Product;
 import com.codegym.service.Impl.CategoriesService;
+import com.codegym.service.Impl.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
@@ -17,6 +19,8 @@ import java.util.List;
 public class CategoriesController extends AdminBaseController {
     @Autowired
     private CategoriesService categoriesService;
+    @Autowired
+    private ProductService productService;
     
     private String TERM = "Categories";
 
@@ -129,6 +133,11 @@ public class CategoriesController extends AdminBaseController {
 
     @PostMapping("/categories/delete")
     public String deleteProvince(@ModelAttribute("categories") Categories categories){
+        List<Product> productList = productService.findAllByCategories(categories.getId());
+        for (Product product: productList) {
+            product.setDeleted((short) 1);
+            productService.save(product);
+        }
         categoriesService.remove(categories.getId());
         return "redirect:/admin/categories/";
     }

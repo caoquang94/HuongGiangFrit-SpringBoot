@@ -9,7 +9,8 @@
 
         <link rel="manifest" href="http://site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+        <script src="thhp://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 		<!-- CSS here -->
             <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
             <link rel="stylesheet" th:href="@{/assets/css/owl.carousel.min.css}">
@@ -23,6 +24,7 @@
             <link rel="stylesheet" th:href="@{/assets/css/nice-select.css}">
             <link rel="stylesheet" th:href="@{/assets/css/style.css}">
             <link rel="stylesheet" th:href="@{/assets/css/responsive.css}">
+
         <style>
             .carousel-inner {
                 display: block;
@@ -81,8 +83,8 @@
                                             <a href="https://www.huonggiangfrit.com.vn/change-language/en"><img src="/assets/img/huonggiang/icon-en.png"></a>
                                             <a href="https://www.huonggiangfrit.com.vn/change-language/vi"><img src="/assets/img/huonggiang/icon-vn.png"></a>
                                         </li>
-                                        <li>+84.2343.595.695</li>
-                                        <li style="margin:5px">huonggiangfrit@gmail.com</li>
+                                        <li th:each="contact : ${contacts}" th:text="${contact.phone}"></li>
+                                        <li style="margin:5px" th:each="contact : ${contacts}" th:text="${contact.email}"></li>
 
 
                                     </ul>
@@ -137,7 +139,6 @@
     </header>
 
     <div class="bd-example" th:replace="user/userLayout::carousel">
-
     </div>
     <main>
 
@@ -252,4 +253,5 @@
    
 	<th:block th:replace="user/userLayout::block-script"></th:block>
     </body>
+    <script th:src="@{/static/assets/js/feedback.js}"></script>
 </html>

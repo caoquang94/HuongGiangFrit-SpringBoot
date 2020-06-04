@@ -49,6 +49,13 @@ public class UserController extends AdminBaseController {
 
         return modelAndView;
     }
+    @GetMapping("/userLayout")
+    public ModelAndView layout(){
+        List<Contact> contacts = contactService.findAll();
+        ModelAndView modelAndView = new ModelAndView("user/userLayout");
+        modelAndView.addObject("contacts", contacts);
+        return modelAndView;
+    }
     @GetMapping("/contact")
     public ModelAndView Contact(){
         List<Contact> contacts = contactService.findAll();
@@ -68,14 +75,12 @@ public class UserController extends AdminBaseController {
         return  modelAndView;
     }
     @PostMapping("/feedBack/add")
-    public ModelAndView saveAddForm( @ModelAttribute("feedBack") FeedBack feedBack, ViewControllerRegistry registry){
+    public ModelAndView saveAddForm( @ModelAttribute("feedBack") FeedBack feedBack){
         feedBackService.save(feedBack);
 
         ModelAndView modelAndView = new ModelAndView("user/contact");
         modelAndView.addObject("feedBack",new Career());
         modelAndView.addObject("action",ACTION_ADD);
-        RedirectViewControllerRegistration r =
-                registry.addRedirectViewController("/user/contact", "/user/index");
         return  modelAndView;
 
     }

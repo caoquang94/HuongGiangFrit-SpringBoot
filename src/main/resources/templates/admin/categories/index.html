@@ -47,9 +47,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <th:block th:each="categories : ${categorieses}">
+                                    <th:block th:each="categories,iter : ${categorieses}">
                                         <tr>
-                                            <td th:text="${categories.id}"></td>
+                                            <td th:text="${iter.index+1}"></td>
                                             <td th:text="${categories.name}"></td>
                                             <td>
                                                 <div class="table-data-feature">

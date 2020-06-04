@@ -132,8 +132,8 @@
                                         <a href="https://www.huonggiangfrit.com.vn/change-language/en"><img src="/assets/img/huonggiang/icon-en.png"></a>
                                         <a href="https://www.huonggiangfrit.com.vn/change-language/vi"><img src="/assets/img/huonggiang/icon-vn.png"></a>
                                     </li>
-                                    <li>+84.2343.595.695</li>
-                                    <li style="margin:5px">huonggiangfrit@gmail.com</li>
+                                    <li th:each="contact : ${contacts}" th:text="${contact.phone}"></li>
+                                    <li style="margin:5px" th:each="contact : ${contacts}" th:text="${contact.email}"></li>
 
 
                                 </ul>

@@ -1,11 +1,13 @@
 package com.codegym.repository;
 
+import com.codegym.model.Categories;
 import com.codegym.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,4 +20,12 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query(value="select p from Product p where p.id_c =:id")
     List<Product> findAllByCategories(@Param("id") long id);
+
+
+    //<--show list restore -->
+    List<Product> findByDeletedIs(short deleted);
+    //<-- JPA -->
+    // List<Product> findAllByCategories(Categories categories);
+
+
 }

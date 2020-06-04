@@ -25,11 +25,11 @@ public class Categories {
         return products;
     }
 
-    public short getIsDeleted() {
+    public short getDeleted() {
         return deleted;
     }
 
-    public void setIsDeleted(short deleted) {
+    public void setDeleted(short deleted) {
         this.deleted = deleted;
     }
 

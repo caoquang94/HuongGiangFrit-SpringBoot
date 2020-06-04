@@ -156,26 +156,24 @@
                             <h2>CÔNG TY CỔ PHẦN FRIT HƯƠNG GIANG</h2>
                         </div>
                     </div>
-                    <th:block th:each="contact : ${contacts}">
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-home"></i></span>
                         <div class="media-body">
-                            <h3 th:text="${contact.address}"></h3>
+                            <h3 th:each="contact : ${contacts}" th:text="${contact.address}"></h3>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                         <div class="media-body">
-                            <h3 th:text="${contact.phone}"></h3>
+                            <h3 th:each="contact : ${contacts}" th:text="${contact.phone}"></h3>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">
-                            <h3 th:text="${contact.email}"></h3>
+                            <h3 th:each="contact : ${contacts}" th:text="${contact.email}"></h3>
                         </div>
                     </div>
-                    </th:block>
                 </div>
 
                 <div class="col-12 mt-20">
@@ -212,10 +210,32 @@
                                 <a href="javascript:" onclick="feedBacks.save()" class="button button-contactForm boxed-btn">Send</a>
                             </div>
                         </div>
-
                     </form>
                 </div>
+                <!-- The Modal -->
+                <div class="modal" id="modalSuccess" name="modalSuccess" style="border-radius: 15px; border-width: 4px ">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
 
+                            <!-- Modal Header -->
+                            <div class="modal-header" style="background: #000066">
+                                <h3 class="modal-title" id="modalTitle" th:name="modalTitle" style="color: #F0F0F0"></h3>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <h5 style="color: #000000">This Message has been sent successfully.</h5>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <a href="javascript:" style="background: #000066" type="button" class="btn btn-success"
+                                   onclick="feedBacks.success()">OK</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -273,7 +293,7 @@
         console.log('get :' + id);
 
         $.ajax({
-            url: "https://frithuonggiang.herokuapp.com/api/feedBacks/" + id,
+            url: "http://localhost:8080/api/feedBacks/" + id,
             method: "GET",
             dataType: "json",
             success: function (data) {
@@ -301,22 +321,15 @@
                 feedBackObj.email = $('#email').val();
                 feedBackObj.title = $('#title').val();
                 feedBackObj.description = $('#description').val();
+                $('#modalTitle').html("Message");
+                $('#modalSuccess').modal('show');
                 //
                 $.ajax({
-                    url: "https://frithuonggiang.herokuapp.com/api/feedBacks/",
+                    url: "http://localhost:8080/feedback/",
                     method: "POST",
                     dataType: "json",
                     contentType: "application/json",
                     data: JSON.stringify(feedBackObj),
-                    done: function () {
-                        console.log("POST DONE");
-                        $('#modalAddEdit').modal('hide');
-                    },
-                    success: function (data) {
-                        console.log("POST success");
-                        $('#modalAddEdit').modal('hide');
-                        window.location.href = 'https://frithuonggiang.herokuapp.com/user/index';
-                    }
                 });
             } else {
                 var feedBackObj = {};
@@ -327,21 +340,23 @@
                 feedBackObj.id = $('#id').val();
 
                 $.ajax({
-                    url: "https://frithuonggiang.herokuapp.com/api/feedBacks/" + feedBackObj.id,
+                    url: "http://localhost:8080/api/feedBacks/" + feedBackObj.id,
                     method: "PUT",
                     dataType: "json",
                     contentType: "application/json",
                     data: JSON.stringify(feedBackObj),
                     success: function (data) {
                         $('#modalAddEdit').modal('hide');
-                        window.location.href = 'https://frithuonggiang.herokuapp.com/user/index';
+                        window.location.href = 'http://localhost:8080/user/index';
                     }
                 });
             }
         }
-
     };
 
+    feedBacks.success = function(){
+        window.location.href = 'http://localhost:8080/user/index';
+    }
     feedBacks.init = function () {
         feedBacks.initValidation();
     };

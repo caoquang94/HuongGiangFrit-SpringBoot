@@ -53,8 +53,8 @@
                                            <a href="https://www.huonggiangfrit.com.vn/change-language/en"><img src="/assets/img/huonggiang/icon-en.png"></a>
                                            <a href="https://www.huonggiangfrit.com.vn/change-language/vi"><img src="/assets/img/huonggiang/icon-vn.png"></a>
                                        </li>
-                                       <li>+84.2343.595.695</li>
-                                       <li style="margin:5px">huonggiangfrit@gmail.com</li>
+                                       <li th:each="contact : ${contacts}" th:text="${contact.phone}"></li>
+                                       <li style="margin:5px" th:each="contact : ${contacts}" th:text="${contact.email}"></li>
 
 
                                    </ul>
@@ -117,7 +117,7 @@
                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                            <a class="nav-link bg-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" th:text="${category.name + ' GỒM CÓ :'}"></a>
                            <th:block th:each="product : ${products}">
-                           <a class="nav-link bg-light" id="v-pills-{{$value->name}}-tab" data-toggle="pill" th:href="@{'#' + ${product.id}}" role="tab" aria-controls="v-pills-profile" aria-selected="{{$value->id ==''}}"><p th:text="${'FRIT TRONG' + product.name}"></p></a>
+                           <a class="nav-link bg-light" id="v-pills-{{$value->name}}-tab" data-toggle="pill" th:href="@{'#' + ${product.id}}" role="tab" aria-controls="v-pills-profile" aria-selected="{{$value->id ==''}}"><p th:text="${product.name}"></p></a>
                            </th:block>
                        </div>
                    </div>
@@ -130,8 +130,6 @@
                                            <div class="col-12">
                                                <div th:utext="${category.description}">
                                                </div>
-                                               <p>
-                                               </p>
                                            </div>
                                        </div>
                                    </div>
@@ -152,7 +150,7 @@
                                                </div>
                                                <div class="col-9">
                                                    <div>
-                                                       <h1 th:text="${ 'FRIT TRONG ' + product.name}"></h1>
+                                                       <h1 th:text="${product.name}"></h1>
                                                    </div>
                                                    <p th:utext="${product.content}">
                                                    </p>

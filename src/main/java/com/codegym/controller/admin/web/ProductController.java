@@ -46,7 +46,7 @@ public class ProductController extends com.codegym.controller.admin.web.AdminBas
 
     @GetMapping("/product/")
     public ModelAndView index(){
-
+//        product.setId_d(product.getCategories().getDeleted());
         List<Product> products = productService.findAll();
         ModelAndView modelAndView = new ModelAndView("admin/product/index");
         modelAndView.addObject("products",products);
@@ -102,6 +102,7 @@ public class ProductController extends com.codegym.controller.admin.web.AdminBas
             }
         }
         //
+        product.setId_c(product.getCategories().getId());
         List<Categories> categories = categoriesService.findAll();
         productService.save(product);
 

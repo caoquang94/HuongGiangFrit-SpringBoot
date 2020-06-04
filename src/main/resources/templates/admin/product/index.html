@@ -45,7 +45,6 @@
                                         <th>Content</th>
                                         <th>Categories</th>
                                         <th>Image</th>
-                                        <th>IdCategories</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                     </thead>
@@ -53,6 +52,7 @@
                                     <th:block th:each="product : ${products}">
                                         <tr>
                                             <td th:text="${product.name}">Name</td>
+                                            <td th:text="${product.content}">Content</td>
                                             <td th:text="${product.categories.name}">Categories</td>
 
                                             <td>

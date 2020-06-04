@@ -92,6 +92,7 @@ public class Product {
         this.image = image;
     }
 
+
     public Product() {
     }
 
