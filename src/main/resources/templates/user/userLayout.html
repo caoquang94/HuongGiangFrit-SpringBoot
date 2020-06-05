@@ -1,133 +1,136 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-</head>
-<body>
-<div id="preloader-active" th:fragment="preloader">
-    <!-- Preloader Start -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img src="assets/img/logo/logo.png" alt="">
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
-</div>
-<div class="bd-example" th:fragment="carousel">
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class=""></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1" class="active"></li>
-        </ol>
-        <div class="carousel-inner" style="">
-            <div class="carousel-item img-fluid">
-                <div class="image__wrapper">
-                    <img src="https://www.huonggiangfrit.com.vn/assets/img/gallery/8799.jpg" alt="...">
-                </div>
-            </div>
-            <div class="carousel-item img-fluid active">
-                <div class="image__wrapper">
-                    <img src="https://www.huonggiangfrit.com.vn/assets/img/gallery/8799.jpg" alt="...">
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+    </head>
+    <body>
+    <div id="preloader-active" th:fragment="preloader">
+        <!-- Preloader Start -->
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo.png" alt="">
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+        <!-- Preloader Start -->
     </div>
-</div>
-<footer th:fragment="app-footer">
+    <div class="bd-example" th:fragment="carousel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class=""></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1" class="active"></li>
+            </ol>
+            <div class="carousel-inner" style="">
+                <div class="carousel-item img-fluid">
+                    <div class="image__wrapper">
+                        <img src="https://www.huonggiangfrit.com.vn/assets/img/gallery/8799.jpg" alt="...">
+                    </div>
+                </div>
+                <div class="carousel-item img-fluid active">
+                    <div class="image__wrapper">
+                        <img src="https://www.huonggiangfrit.com.vn/assets/img/gallery/8799.jpg" alt="...">
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <footer th:fragment="app-footer">
 
-        <!-- Footer Start-->
-        <div class="footer-area footer-bg">
-            <div class="container">
-                <div class="row d-flex justify-content-between pt-5">
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>CÔNG TY CỔ PHẦN FRIT HƯƠNG GIANG</h4>
-                                <ul>
-                                    <li>
-                                        <p><span><i class="fa fa-home" aria-hidden="true"></i>
-                                </span>Tọa lạc tại Khu B, KCN Phong Điền, thị trấn Phong Điền, huyện Phong Điền, tỉnh Thừa Thiên Huế.</p>
-                                    </li>
-                                    <li><a href="tel:+842343595695" th:each="contact : ${contacts}" th:text="${contact.phone}"><span><i class="fa fa-phone" aria-hidden="true"></i>
-                                </span></a></li>
-                                    <li><a href="http://huonggiangfrit@gmail.com" th:each="contact : ${contacts}" th:text="${contact.email}"><span><i class="fa fa-envelope" aria-hidden="true"></i>
-                                </span></a></li>
-                                    <li><span><i class="fa fa-eye" aria-hidden="true"></i>
+            <!-- Footer Start-->
+            <div class="footer-area footer-bg">
+                <div class="container">
+                    <div class="row d-flex justify-content-between pt-5">
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                            <div class="single-footer-caption mb-50">
+                                <div class="footer-tittle">
+                                    <h4>CÔNG TY CỔ PHẦN FRIT HƯƠNG GIANG</h4>
+                                    <ul>
+                                        <li>
+                                            <p><span><i class="fa fa-home" aria-hidden="true"></i>
+                                    </span>Tọa lạc tại Khu B, KCN Phong Điền, thị trấn Phong Điền, huyện Phong Điền, tỉnh Thừa Thiên Huế.</p>
+                                        </li>
+                                        <li><a href="tel:+842343595695" th:each="contact : ${contacts}" th:text="${contact.phone}"><span><i class="fa fa-phone" aria-hidden="true"></i>
+                                    </span></a></li>
+                                        <li><a href="http://huonggiangfrit@gmail.com" th:each="contact : ${contacts}" th:text="${contact.email}"><span><i class="fa fa-envelope" aria-hidden="true"></i>
+                                    </span></a></li>
+    <!--                                    <li><span><i class="fa fa-eye" aria-hidden="true"></i>-->
 
-                                </span>Lượt xem                                     981
-                                    </li>
-                                    <li>
-									  <span><i class="fa fa-laptop" aria-hidden="true"></i>
-                                        </span>Lượt truy cập                                             1
-                                    </li>
-                                </ul>
+    <!--                                </span>Lượt xem                                     981-->
+    <!--                                    </li>-->
+    <!--                                    <li>-->
+    <!--									  <span><i class="fa fa-laptop" aria-hidden="true"></i>-->
+    <!--                                        </span>Lượt truy cập                                             1-->
+    <!--                                    </li>-->
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Footer End-->
+            <!-- Footer End-->
 
 
 
-</footer>
-<th:block th:fragment="block-script">
-    <!-- JS here -->
+    </footer>
+    <th:block th:fragment="block-script">
+        <!-- JS here -->
 
-    <!-- All JS Custom Plugins Link Here here -->
-    <script th:src="@{/assets/js/vendor/modernizr-3.5.0.min.js}"></script>
+        <!-- All JS Custom Plugins Link Here here -->
+        <script th:src="@{/assets/js/vendor/modernizr-3.5.0.min.js}"></script>
 
-    <!-- Jquery, Popper, Bootstrap -->
-    <script th:src="@{/assets/js/vendor/jquery-1.12.4.min.js}"></script>
-    <script th:src="@{/assets/js/popper.min.js}"></script>
-    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-    <!-- Jquery Mobile Menu -->
-    <script th:src="@{/assets/js/jquery.slicknav.min.js}"></script>
+        <!-- Jquery, Popper, Bootstrap -->
+        <script th:src="@{/assets/js/vendor/jquery-1.12.4.min.js}"></script>
+        <script th:src="@{/assets/js/popper.min.js}"></script>
+        <script th:src="@{/assets/js/bootstrap.min.js}"></script>
+        <!-- Jquery Mobile Menu -->
+        <script th:src="@{/assets/js/jquery.slicknav.min.js}"></script>
 
-    <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script th:src="@{/assets/js/owl.carousel.min.js}"></script>
-    <script th:src="@{/assets/js/slick.min.js}"></script>
-    <!-- Date Picker -->
-    <script th:src="@{/assets/js/gijgo.min.js}"></script>
-    <!-- One Page, Animated-HeadLin -->
-    <script th:src="@{/assets/js/wow.min.js}"></script>
-    <script th:src="@{/assets/js/animated.headline.js}"></script>
-    <script th:src="@{/assets/js/jquery.magnific-popup.js}"></script>
+        <!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script th:src="@{/assets/js/owl.carousel.min.js}"></script>
+        <script th:src="@{/assets/js/slick.min.js}"></script>
+        <!-- Date Picker -->
+        <script th:src="@{/assets/js/gijgo.min.js}"></script>
+        <!-- One Page, Animated-HeadLin -->
+        <script th:src="@{/assets/js/wow.min.js}"></script>
+        <script th:src="@{/assets/js/animated.headline.js}"></script>
+        <script th:src="@{/assets/js/jquery.magnific-popup.js}"></script>
 
-    <!-- Scrollup, nice-select, sticky -->
-    <script th:src="@{/assets/js/jquery.scrollUp.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.nice-select.min.js}"></script>
-    <script th:src="@{/assets/js/jquery.sticky.js}"></script>
+        <!-- Scrollup, nice-select, sticky -->
+        <script th:src="@{/assets/js/jquery.scrollUp.min.js}"></script>
+        <script th:src="@{/assets/js/jquery.nice-select.min.js}"></script>
+        <script th:src="@{/assets/js/jquery.sticky.js}"></script>
 
-    <!-- contact js -->
-    <script th:src="@{/assets/js/contact.js}"></script>
-    <script th:src="@{/assets/js/jquery.form.js}"></script>
-    <script th:src="@{/assets/js/jquery.validate.min.js}"></script>
-    <script th:src="@{/assets/js/mail-script.js}"></script>
-    <script th:src="@{/assets/js/jquery.ajaxchimp.min.js}"></script>
+        <!-- contact js -->
+        <script th:src="@{/assets/js/contact.js}"></script>
+        <script th:src="@{/assets/js/jquery.form.js}"></script>
+        <script th:src="@{/assets/js/jquery.validate.min.js}"></script>
+        <script th:src="@{/assets/js/mail-script.js}"></script>
+        <script th:src="@{/assets/js/jquery.ajaxchimp.min.js}"></script>
 
-    <!-- Jquery Plugins, main Jquery -->
-    <script th:src="@{/assets/js/plugins.js}"></script>
-    <script th:src="@{/assets/js/main.js}"></script>
-<!--    Validate-->
-    <script th:src="@{/assets/js/jquery-validation/dist/jquery.validate.js}"  ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
-    <script>
-        var globlaConfig={}||globlaConfig;
-        globlaConfig.url="http://localhost:8080/";
-        globlaConfig.url="https://frithuonggiang.herokuapp.com/";
-    </script>
-</th:block>
-</body>
-</html>
+        <!-- Jquery Plugins, main Jquery -->
+        <script th:src="@{/assets/js/plugins.js}"></script>
+        <script th:src="@{/assets/js/main.js}"></script>
+    <!--    Validate-->
+        <script th:src="@{/assets/js/jquery-validation/dist/jquery.validate.js}"  ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+        <!--SweetAlert-->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+        <script>
+            var globlaConfig={}||globlaConfig;
+            globlaConfig.url="http://localhost:8080/";
+            globlaConfig.url="https://frithuonggiang.herokuapp.com/";
+        </script>
+    </th:block>
+    </body>
+    </html>

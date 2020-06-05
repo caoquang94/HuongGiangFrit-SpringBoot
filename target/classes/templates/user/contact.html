@@ -57,6 +57,19 @@
                 width: auto !important;
             }
         }
+        .map-container-2{
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+        }
+        .map-container-2 iframe{
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+        }
     </style>
 </head>
 
@@ -82,8 +95,8 @@
                                         <a href="https://www.huonggiangfrit.com.vn/change-language/en"><img src="/assets/img/huonggiang/icon-en.png"></a>
                                         <a href="https://www.huonggiangfrit.com.vn/change-language/vi"><img src="/assets/img/huonggiang/icon-vn.png"></a>
                                     </li>
-                                    <li>+84.2343.595.695</li>
-                                    <li style="margin:5px">huonggiangfrit@gmail.com</li>
+                                    <li th:each="contact : ${contacts}" th:text="${contact.phone}"></li>
+                                    <li style="margin:5px" th:each="contact : ${contacts}" th:text="${contact.email}"></li>
 
 
                                 </ul>
@@ -98,7 +111,7 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-1 col-md-1">
                             <div class="logo" style="">
-                                <a href="/user/index"><img width="100px" src="https://www.huonggiangfrit.com.vn/assets/img/logo/logo_2.png" alt=""></a>
+                                <a href="/user/index"><img width="100px" th:src="@{/assets/img/huonggiang/logo_2.png}" alt=""></a>
                                 <!-- <img src="https://www.huonggiangfrit.com.vn/assets/img/logo/huongiangicon.png" alt="..."> -->
                             </div>
                         </div>
@@ -147,8 +160,15 @@
             <div class="row">
                 <div class="col-lg-7">
                     <a href="https://www.google.com/maps/place/C%C3%B4ng+Ty+C%E1%BB%95+Ph%E1%BA%A7n+Frit+H%C6%B0%C6%A1ng+Giang/@16.601625,107.37366,3178m/data=!3m1!1e3!4m12!1m6!3m5!1s0x0:0x11addf2a1ab99c4c!2zQ8O0bmcgVHkgQ-G7lSBQaOG6p24gRnJpdCBIxrDGoW5nIEdpYW5n!8m2!3d16.6016251!4d107.3736598!3m4!1s0x0:0x11addf2a1ab99c4c!8m2!3d16.6016251!4d107.3736598?hl=en" target="_blank">
-                        <img src="/static/assets/img/huonggiang/map.png" alt="Smiley face" width="600" height="450">
+                        <img th:src="@{/assets/img/huonggiang/map.png}" alt="Smiley face" width="600" height="450">
                     </a>
+<!--                    &lt;!&ndash;Google map&ndash;&gt;-->
+<!--                    <div id="map-container-google-2" class="z-depth-1-half map-container" style=" width:600px; height:450px">-->
+<!--                        <iframe src="https://maps.google.com/maps?v=3&key=AIzaSyAb-noGomlULEcr77sSnj3I12LkmdJoGt4" frameborder="0"-->
+<!--                                style="border:0" allowfullscreen></iframe>-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash;Google Maps&ndash;&gt;-->
                 </div>
                 <div style="text-align:center" class="col-lg-4 offset-lg-1">
                     <div class="">

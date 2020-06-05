@@ -81,7 +81,7 @@
                                             <strong th:text="${term}"></strong>
                                         </div>
                                         <div class="card-body card-block">
-                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/news/}+${action}" th:object="${news}">
+                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/news/}+${action}" th:object="${news}" id="valid">
                                                 <input type="hidden" th:field="*{id}">
                                                 <div class="row form-group">
                                                 </div>
@@ -90,7 +90,7 @@
                                                         <label for="title" class=" form-control-label">Title</label>
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="text" id="title" name="text-input" placeholder="Title" class="form-control" th:field="*{title}">
+                                                        <input type="text" id="title" name="text-input" maxlength="100" placeholder="Title" class="form-control" th:field="*{title}">
                                                         <small class="form-text text-muted"></small>
                                                     </div>
                                                 </div>
@@ -118,8 +118,8 @@
                                                             <label for="file-input" class=" form-control-label">Current Image</label>
                                                         </div>
                                                         <div class="col-12 col-md-9">
-                                                            <input type="hidden" th:field = "*{image}"  class="form-control">
-                                                            <img th:src="@{/static/upload/__*{image}__}" class="image" height="50px" width="50px">
+                                                            <input type="hidden" th:field = "*{image}"  class="form-control" required>
+                                                            <img th:src="@{/upload/__*{image}__}" class="image" height="50px" width="50px">
                                                         </div>
                                                     </div>
                                                 </th:block>
@@ -168,6 +168,7 @@
         var i = s.split('\\').pop().split('/').pop();
         $('#imageShow').val(i);
     }
+    $('#valid').validate();
 </script>
 </body>
 </html>

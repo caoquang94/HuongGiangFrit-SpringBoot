@@ -81,7 +81,7 @@
                                             <strong th:text="${term}"></strong>
                                         </div>
                                         <div class="card-body card-block">
-                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/career/}+${action}" th:object="${career}">
+                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/career/}+${action}" th:object="${career}" id="valid">
                                                 <input type="hidden" th:field="*{id}">
                                                 <div class="row form-group">
                                                 </div>
@@ -110,7 +110,7 @@
                                                         </div>
                                                         <div class="col-12 col-md-9">
                                                             <input type="hidden" th:field = "*{image}"  class="form-control">
-                                                            <img th:src="@{/static/upload/__*{image}__}" class="image" height="50px" width="50px">
+                                                            <img th:src="@{/upload/__*{image}__}" class="image" height="50px" width="50px">
                                                         </div>
                                                     </div>
                                                 </th:block>
@@ -159,6 +159,7 @@
         var i = s.split('\\').pop().split('/').pop();
         $('#imageShow').val(i);
     }
+    $('#valid').validate();
 </script>
 </body>
 </html>

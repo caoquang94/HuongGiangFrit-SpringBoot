@@ -72,8 +72,15 @@ feedBacks.save = function () {
             feedBackObj.email = $('#email').val();
             feedBackObj.title = $('#title').val();
             feedBackObj.description = $('#description').val();
-            $('#modalTitle').html("Message");
-            $('#modalSuccess').modal('show');
+            swal({
+                title: "Thí message has been sent successfully!",
+                text: "You clicked the button!",
+                icon: "success",
+                button: "OK",
+            })
+                .then((value) => {
+                    window.location.href = globlaConfig.url + "user/index";
+                });
             //
             $.ajax({
                 url: globlaConfig.url +"feedback/",
@@ -106,7 +113,7 @@ feedBacks.save = function () {
 };
 
 feedBacks.success = function(){
-    window.location.href = 'http://localhost:8080/user/index';
+    window.location.href = globlaConfig.url + "user/index";
 }
 feedBacks.init = function () {
     feedBacks.initValidation();

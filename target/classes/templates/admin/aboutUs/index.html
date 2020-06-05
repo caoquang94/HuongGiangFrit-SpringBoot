@@ -55,7 +55,7 @@
 <!--                                            <td th:utext="${aboutUs.htmlDescription}"></td>-->
                                             <td>
                                                 <th:block th:if="${aboutUs.image}">
-                                                    <img th:src="@{~/static/upload/__${aboutUs.image}__}" height="50px" width="50px">
+                                                    <img th:src="@{/upload/__${aboutUs.image}__}" height="50px" width="50px">
                                                 </th:block>
                                             </td>
                                             <td>

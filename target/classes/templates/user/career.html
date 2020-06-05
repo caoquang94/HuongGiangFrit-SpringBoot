@@ -98,7 +98,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-1 col-md-1">
                                 <div class="logo" style="">
-                                    <a href="/user/index"><img width="100px" src="https://www.huonggiangfrit.com.vn/assets/img/logo/logo_2.png" alt=""></a>
+                                    <a href="/user/index"><img width="100px" th:src="@{/assets/img/huonggiang/logo_2.png}" alt=""></a>
                                     <!-- <img src="https://www.huonggiangfrit.com.vn/assets/img/logo/huongiangicon.png" alt="..."> -->
                                 </div>
                             </div>
@@ -146,7 +146,7 @@
         </div>
         <div>
             <th:block th:if="${career.image}">
-                <img th:src="@{~/static/upload/__${career.image}__}" height="500px" width="600px">
+                <img th:src="@{/upload/__${career.image}__}" height="500px" width="600px">
             </th:block>
         </div>
         </th:block>

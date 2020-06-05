@@ -81,7 +81,7 @@
                                             <strong th:text="${term}"></strong>
                                         </div>
                                         <div class="card-body card-block">
-                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/categories/}+${action}" th:object="${categories}" novalidate="novalidate">
+                                            <form method="post" enctype="multipart/form-data" class="form-horizontal" th:action="@{admin/categories/}+${action}" th:object="${categories}" id="valid">
                                                 <input type="hidden" th:field="*{id}">
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
@@ -137,6 +137,7 @@
         var i = s.split('\\').pop().split('/').pop();
         $('#imageShow').val(i);
     }
+    $('#valid').validate();
 </script>
 </body>
 </html>
