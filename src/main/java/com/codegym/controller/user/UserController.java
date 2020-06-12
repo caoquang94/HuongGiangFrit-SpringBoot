@@ -156,12 +156,16 @@ public class UserController extends AdminBaseController {
         Categories category=categoriesService.findById(1);
         List<Product> products = productService.findAllByCategories(1);
         List<Contact> contacts = contactService.findAll();
+        try{
         ModelAndView modelAndView = new ModelAndView("user/product");
         modelAndView.addObject("categories", categories);
         modelAndView.addObject("category", category);
         modelAndView.addObject("products", products);
         modelAndView.addObject("contacts", contacts);
-        return modelAndView;
+        return modelAndView;}catch (Exception e){
+            ModelAndView modelAndView = new ModelAndView("error.404");
+            return modelAndView;
+        }
     }
     @GetMapping("/product/{id}")
     public ModelAndView product(@PathVariable Long id){
@@ -169,11 +173,15 @@ public class UserController extends AdminBaseController {
         Categories category=categoriesService.findById(id);
         List<Product> products = productService.findAllByCategories(id);
         List<Contact> contacts = contactService.findAll();
+        try{
         ModelAndView modelAndView = new ModelAndView("user/product");
         modelAndView.addObject("category", category);
         modelAndView.addObject("categories", categories);
         modelAndView.addObject("products", products);
         modelAndView.addObject("contacts", contacts);
-        return modelAndView;
+        return modelAndView;}catch (Exception e){
+            ModelAndView modelAndView = new ModelAndView("error.404");
+            return modelAndView;
+        }
     }
 }
