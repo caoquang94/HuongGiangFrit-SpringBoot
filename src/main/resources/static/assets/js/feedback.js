@@ -79,7 +79,7 @@ feedBacks.save = function () {
                 button: "OK",
             })
                 .then((value) => {
-                    window.location.href = globlaConfig.url + "/";
+                    window.location.href = globlaConfig.url;
                 });
             //
             $.ajax({
@@ -105,7 +105,7 @@ feedBacks.save = function () {
                 data: JSON.stringify(feedBackObj),
                 success: function (data) {
                     $('#modalAddEdit').modal('hide');
-                    window.location.href = globlaConfig.url + "/";
+                    window.location.href = globlaConfig.url ;
                 }
             });
         }
@@ -113,7 +113,7 @@ feedBacks.save = function () {
 };
 
 feedBacks.success = function(){
-    window.location.href = globlaConfig.url + "/";
+    window.location.href = globlaConfig.url;
 }
 feedBacks.init = function () {
     feedBacks.initValidation();
