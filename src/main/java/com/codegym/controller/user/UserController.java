@@ -14,7 +14,6 @@ import java.sql.SQLOutput;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
 public class UserController extends AdminBaseController {
     private static final Object ACTION_EDIT = "edit";
     private static final Object ACTION_ADD = "add";
@@ -32,7 +31,7 @@ public class UserController extends AdminBaseController {
     private CategoriesService categoriesService;
     @Autowired
     private ProductService productService;
-    @GetMapping("/index")
+    @GetMapping("")
     public ModelAndView index(){
         int counts;
         counts =+1;
@@ -49,14 +48,14 @@ public class UserController extends AdminBaseController {
 
         return modelAndView;
     }
-    @GetMapping("/userLayout")
+    @GetMapping("user/userLayout")
     public ModelAndView layout(){
         List<Contact> contacts = contactService.findAll();
         ModelAndView modelAndView = new ModelAndView("user/userLayout");
         modelAndView.addObject("contacts", contacts);
         return modelAndView;
     }
-    @GetMapping("/contact")
+    @GetMapping("user/contact")
     public ModelAndView Contact(){
         List<Contact> contacts = contactService.findAll();
         List<Categories> categories = categoriesService.findAll();
@@ -66,7 +65,7 @@ public class UserController extends AdminBaseController {
         modelAndView.addObject("feedBack", new FeedBack());
         return modelAndView;
     }
-    @GetMapping("/feedBack/add")
+    @GetMapping("user/feedBack/add")
     public ModelAndView showAddForm(){
         ModelAndView modelAndView = new ModelAndView("user/contact");
         modelAndView.addObject("feedback",new FeedBack());
@@ -74,7 +73,7 @@ public class UserController extends AdminBaseController {
 
         return  modelAndView;
     }
-    @PostMapping("/feedBack/add")
+    @PostMapping("user/feedBack/add")
     public ModelAndView saveAddForm( @ModelAttribute("feedBack") FeedBack feedBack){
         feedBackService.save(feedBack);
 
@@ -85,7 +84,7 @@ public class UserController extends AdminBaseController {
 
     }
 
-    @GetMapping("/aboutUs")
+    @GetMapping("user/aboutUs")
     public ModelAndView AboutUs(){
         List<Categories> categories = categoriesService.findAll();
         List<Contact> contacts = contactService.findAll();
@@ -95,7 +94,7 @@ public class UserController extends AdminBaseController {
         return modelAndView;
     }
 
-    @GetMapping("/news")
+    @GetMapping("user/news")
     public ModelAndView News(){
         List<News> news = newService.findAll();
         List<Contact> contacts = contactService.findAll();
@@ -106,7 +105,7 @@ public class UserController extends AdminBaseController {
         modelAndView.addObject("contacts", contacts);
         return modelAndView;}
 
-    @GetMapping("/career")
+    @GetMapping("user/career")
     public ModelAndView Career(){
         List<Career> careers = careerService.findAll();
         List<Categories> categories = categoriesService.findAll();
@@ -118,7 +117,7 @@ public class UserController extends AdminBaseController {
         return modelAndView;
     }
 
-    @PostMapping("/news/{id}")
+    @PostMapping("user/news/{id}")
     public ModelAndView saveEditForm(@ModelAttribute("news") News news){
 
         feedBackService.findAll();
@@ -131,7 +130,7 @@ public class UserController extends AdminBaseController {
         return  modelAndView;
     }
 
-    @GetMapping("/news/{id}")
+    @GetMapping("user/news/{id}")
     public ModelAndView showUpdateForm(@PathVariable Long id){
         List<Categories> categories = categoriesService.findAll();
         List<Contact> contacts = contactService.findAll();
@@ -150,7 +149,7 @@ public class UserController extends AdminBaseController {
 
     }
 
-    @GetMapping("/product/1")
+    @GetMapping("user/product/1")
     public ModelAndView categories(){
         List<Categories> categories = categoriesService.findAll();
         Categories category=categoriesService.findById(1);
@@ -167,7 +166,7 @@ public class UserController extends AdminBaseController {
             return modelAndView;
         }
     }
-    @GetMapping("/product/{id}")
+    @GetMapping("user/product/{id}")
     public ModelAndView product(@PathVariable Long id){
         List<Categories> categories = categoriesService.findAll();
         Categories category=categoriesService.findById(id);
