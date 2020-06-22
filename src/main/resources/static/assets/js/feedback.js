@@ -73,13 +73,13 @@ feedBacks.save = function () {
             feedBackObj.title = $('#title').val();
             feedBackObj.description = $('#description').val();
             swal({
-                title: "Thí message has been sent successfully!",
+                title: "This message has been sent successfully!",
                 text: "You clicked the button!",
                 icon: "success",
                 button: "OK",
             })
                 .then((value) => {
-                    window.location.href = globlaConfig.url + "user/index";
+                    window.location.href = globlaConfig.url + "/";
                 });
             //
             $.ajax({
@@ -105,7 +105,7 @@ feedBacks.save = function () {
                 data: JSON.stringify(feedBackObj),
                 success: function (data) {
                     $('#modalAddEdit').modal('hide');
-                    window.location.href = 'http://localhost:8080/user/index';
+                    window.location.href = globlaConfig.url + "/";
                 }
             });
         }
@@ -113,7 +113,7 @@ feedBacks.save = function () {
 };
 
 feedBacks.success = function(){
-    window.location.href = globlaConfig.url + "user/index";
+    window.location.href = globlaConfig.url + "/";
 }
 feedBacks.init = function () {
     feedBacks.initValidation();
