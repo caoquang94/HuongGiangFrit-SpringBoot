@@ -44,7 +44,7 @@ public class ProductController extends com.codegym.controller.admin.web.AdminBas
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/product/")
     public ModelAndView index(){
 //        product.setId_d(product.getCategories().getDeleted());
         List<Product> products = productService.findAll();
@@ -219,6 +219,6 @@ public class ProductController extends com.codegym.controller.admin.web.AdminBas
     @PostMapping("/product/delete")
     public String deleteProvince(@ModelAttribute("product") Product product){
         productService.remove(product.getId());
-        return "redirect:/admin/";
+        return "redirect:/admin/product/";
     }
 }
